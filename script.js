@@ -1,7 +1,9 @@
-let numberOne;
-let numberTwo;
-let operator;
-let displayValue;
+let calculator = {
+  numberOne: [],
+  numberTwo: [],
+  operator: '',
+  displayValue: '' 
+};
 
 function add (a, b) {
   return a + b;
@@ -22,13 +24,13 @@ function divide (a, b) {
 function operate(){
   switch (operator) {
     case '+':
-      return add (numberOne, numberTwo);
+      return add (calculator.numberOne, calculator.numberTwo);
     case '-':
-      return subtract (numberOne, numberTwo);
+      return subtract (calculator.numberOne, calculator.numberTwo);
     case '*':
-      return multiply (numberOne, numberTwo);
+      return multiply (calculator.numberOne, calculator.numberTwo);
     case '/':
-      return divide (numberOne, numberTwo);
+      return divide (calculator.numberOne, calculator.numberTwo);
   }
 }
 
@@ -36,11 +38,11 @@ buttonNumbers = document.querySelectorAll('.button-number');
 buttonNumbers.forEach((button) => button.addEventListener('click', () => populateNumberOne()))
 
 function populateNumberOne() {
-  numberOne = event.target.textContent;
+  calculator.numberOne = event.target.textContent;
 };
 
 function populateNumberTwo() {
-  numberTwo = event.target.textContent;
+  calculator.numberTwo = event.target.textContent;
 };
 
 function updateDisplay () {
