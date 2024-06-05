@@ -31,3 +31,5 @@ function operate(){
       return divide (numberOne, numberTwo);
   }
 }
+
+numbersButton = document.querySelectorAll('.button-number');
