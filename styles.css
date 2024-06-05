@@ -1,0 +1,9 @@
+.display {
+  width: 400px;
+  height: 100px;
+  border: black solid;
+}
+
+.display p {
+  border: red solid;
+}
