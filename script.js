@@ -1,6 +1,6 @@
-numberOne;
-numberTwo;
-operator;
+let numberOne;
+let numberTwo;
+let operator;
 
 function add (a, b) {
   return a + b;
