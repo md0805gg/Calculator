@@ -34,7 +34,7 @@ function operate(){
   }
 }
 
-buttonNumbers = document.querySelectorAll('.button-number');
+let buttonNumbers = document.querySelectorAll('.button-number');
 buttonNumbers.forEach((button) => button.addEventListener('click', () => populateNumbers()))
 
 function populateNumberOne() {
@@ -52,6 +52,8 @@ function populateNumbers() {
     populateNumberTwo();
   }
 }
+
+let calculatorDisplay = document.querySelector('.display-upper');
 
 function updateDisplay () {
   return displayValue;
