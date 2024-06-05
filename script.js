@@ -35,15 +35,23 @@ function operate(){
 }
 
 buttonNumbers = document.querySelectorAll('.button-number');
-buttonNumbers.forEach((button) => button.addEventListener('click', () => populateNumberOne()))
+buttonNumbers.forEach((button) => button.addEventListener('click', () => populateNumbers()))
 
 function populateNumberOne() {
-  calculator.numberOne = event.target.textContent;
+  calculator.numberOne.push(event.target.textContent);
 };
 
 function populateNumberTwo() {
-  calculator.numberTwo = event.target.textContent;
+  calculator.numberTwo.push(event.target.textContent);
 };
+
+function populateNumbers() {
+  if (calculator.operator.length < 1) {
+    populateNumberOne();
+  } else {
+    populateNumberTwo();
+  }
+}
 
 function updateDisplay () {
   return displayValue;
