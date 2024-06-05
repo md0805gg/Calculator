@@ -51,12 +51,14 @@ function populateNumbers() {
   } else {
     populateNumberTwo();
   }
+  updateDisplay();
 }
 
-let calculatorDisplay = document.querySelector('.display-upper');
+let calculatorDisplayUpper = document.querySelector('.display-upper');
 
 function updateDisplay () {
-  return displayValue;
+  calculatorDisplayUpper.textContent = `${calculator.numberOne.join('')} ${calculator.operator}
+  ${calculator.numberTwo.join('')}`;
 }
 
 
