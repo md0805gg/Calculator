@@ -39,7 +39,7 @@ function populateNumberOne() {
   numberOne = event.target.textContent;
 };
 
-function populateNumbertwo() {
+function populateNumberTwo() {
   numberTwo = event.target.textContent;
 };
 
