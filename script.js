@@ -33,3 +33,7 @@ function operate(){
 }
 
 numbersButton = document.querySelectorAll('.button-number');
+
+function updateDisplay () {
+  return;
+}
