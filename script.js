@@ -1,6 +1,7 @@
 let numberOne;
 let numberTwo;
 let operator;
+let displayValue;
 
 function add (a, b) {
   return a + b;
