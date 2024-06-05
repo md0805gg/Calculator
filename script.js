@@ -32,8 +32,11 @@ function operate(){
   }
 }
 
-numbersButton = document.querySelectorAll('.button-number');
+buttonNumbers = document.querySelectorAll('.button-number');
+buttonNumbers.forEach((button) => button.addEventListener('click', () => alert('a')))
 
 function updateDisplay () {
-  return;
+  return displayValue;
 }
+
+
