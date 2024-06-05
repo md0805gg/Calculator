@@ -33,7 +33,15 @@ function operate(){
 }
 
 buttonNumbers = document.querySelectorAll('.button-number');
-buttonNumbers.forEach((button) => button.addEventListener('click', () => alert('a')))
+buttonNumbers.forEach((button) => button.addEventListener('click', () => populateNumberOne()))
+
+function populateNumberOne() {
+  numberOne = event.target.textContent;
+};
+
+function populateNumbertwo() {
+  numberTwo = event.target.textContent;
+};
 
 function updateDisplay () {
   return displayValue;
