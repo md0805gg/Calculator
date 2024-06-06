@@ -66,6 +66,8 @@ function populateOperator(event) {
   updateDisplay();
 };
 
+let buttonOperate = document.querySelector('.button-operate');
+
 let calculatorDisplayUpper = document.querySelector('.display-upper');
 
 function updateDisplay () {
