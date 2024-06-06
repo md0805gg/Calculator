@@ -2,7 +2,7 @@ let calculator = {
   numberOne: [],
   numberTwo: [],
   operator: '',
-  displayValue: '' 
+  result: '' 
 };
 
 function add (a, b) {
