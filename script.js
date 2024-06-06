@@ -54,6 +54,18 @@ function populateNumbers() {
   updateDisplay();
 }
 
+let buttonOperators = document.querySelectorAll('.button-operator');
+buttonOperators.forEach((button) => button.addEventListener('click', () => populateOperator()));
+
+function populateOperator() {
+  if(calculator.numberOne.length < 1){
+    return;
+  } else {
+    calculator.operator = event.target.textContent;
+  };
+  updateDisplay();
+};
+
 let calculatorDisplayUpper = document.querySelector('.display-upper');
 
 function updateDisplay () {
