@@ -35,29 +35,29 @@ function operate(){
 }
 
 let buttonNumbers = document.querySelectorAll('.button-number');
-buttonNumbers.forEach((button) => button.addEventListener('click', () => populateNumbers()))
+buttonNumbers.forEach((button) => button.addEventListener('click', (event) => populateNumbers(event)))
 
-function populateNumberOne() {
+function populateNumberOne(event) {
   calculator.numberOne.push(event.target.textContent);
 };
 
-function populateNumberTwo() {
+function populateNumberTwo(event) {
   calculator.numberTwo.push(event.target.textContent);
 };
 
-function populateNumbers() {
+function populateNumbers(event) {
   if (calculator.operator.length < 1) {
-    populateNumberOne();
+    populateNumberOne(event);
   } else {
-    populateNumberTwo();
+    populateNumberTwo(event);
   }
   updateDisplay();
 }
 
 let buttonOperators = document.querySelectorAll('.button-operator');
-buttonOperators.forEach((button) => button.addEventListener('click', () => populateOperator()));
+buttonOperators.forEach((button) => button.addEventListener('click', (event) => populateOperator(event)));
 
-function populateOperator() {
+function populateOperator(event) {
   if(calculator.numberOne.length < 1){
     return;
   } else {
