@@ -35,7 +35,7 @@ function operate(){
 }
 
 let buttonNumbers = document.querySelectorAll('.button-number');
-buttonNumbers.forEach((button) => button.addEventListener('click', (event) => populateNumbers(event)))
+buttonNumbers.forEach((button) => button.addEventListener('click', populateNumbers))
 
 function populateNumberOne(event) {
   calculator.numberOne.push(event.target.textContent);
@@ -55,7 +55,7 @@ function populateNumbers(event) {
 }
 
 let buttonOperators = document.querySelectorAll('.button-operator');
-buttonOperators.forEach((button) => button.addEventListener('click', (event) => populateOperator(event)));
+buttonOperators.forEach((button) => button.addEventListener('click', populateOperator));
 
 function populateOperator(event) {
   if(calculator.numberOne.length < 1){
