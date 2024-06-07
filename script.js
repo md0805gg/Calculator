@@ -5,40 +5,6 @@ let calculator = {
   result: '' 
 };
 
-function add (a, b) {
-  return a + b;
-}
-
-function subtract (a, b) {
-  return a - b;
-}
-
-function multiply (a, b) {
-  return a * b;
-}
-
-function divide (a, b) {
-  return a / b;
-}
-
-function operate(){
-  switch (calculator.operator) {
-    case '+':
-      calculator.result = add (+calculator.numberOne.join(''), +calculator.numberTwo.join(''));
-      break;
-    case '-':
-      calculator.result = subtract (+calculator.numberOne.join(''), +calculator.numberTwo.join(''));
-      break;
-    case '*':
-      calculator.result = multiply (+calculator.numberOne.join(''), +calculator.numberTwo.join(''));
-      break;
-    case '/':
-      calculator.result = divide (+calculator.numberOne.join(''), +calculator.numberTwo.join(''));
-      break;
-  }
-  updateDisplay();
-}
-
 let buttonNumbers = document.querySelectorAll('.button-number');
 buttonNumbers.forEach((button) => button.addEventListener('click', populateNumbers))
 
@@ -73,6 +39,40 @@ function populateOperator(event) {
 
 let buttonOperate = document.querySelector('.button-operate');
 buttonOperate.addEventListener('click', operate)
+
+function operate(){
+  switch (calculator.operator) {
+    case '+':
+      calculator.result = add (+calculator.numberOne.join(''), +calculator.numberTwo.join(''));
+      break;
+    case '-':
+      calculator.result = subtract (+calculator.numberOne.join(''), +calculator.numberTwo.join(''));
+      break;
+    case '*':
+      calculator.result = multiply (+calculator.numberOne.join(''), +calculator.numberTwo.join(''));
+      break;
+    case '/':
+      calculator.result = divide (+calculator.numberOne.join(''), +calculator.numberTwo.join(''));
+      break;
+  }
+  updateDisplay();
+}
+
+function add (a, b) {
+  return a + b;
+}
+
+function subtract (a, b) {
+  return a - b;
+}
+
+function multiply (a, b) {
+  return a * b;
+}
+
+function divide (a, b) {
+  return a / b;
+}
 
 let calculatorDisplayUpper = document.querySelector('.display-upper');
 
