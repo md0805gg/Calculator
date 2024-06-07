@@ -89,4 +89,9 @@ function updateDisplay () {
   ${calculator.numberTwo.join('')} = ${calculator.result}`;
 }
 
+let buttonClear = document.querySelector('.button-clear');
+buttonClear.addEventListener('click', clearDisplay);
 
+function clearDisplay (){
+  console.log('test');
+};
