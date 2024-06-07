@@ -22,16 +22,21 @@ function divide (a, b) {
 }
 
 function operate(){
-  switch (operator) {
+  switch (calculator.operator) {
     case '+':
-      return add (calculator.numberOne, calculator.numberTwo);
+      calculator.result = add (+calculator.numberOne.join(''), +calculator.numberTwo.join(''));
+      break;
     case '-':
-      return subtract (calculator.numberOne, calculator.numberTwo);
+      calculator.result = subtract (+calculator.numberOne.join(''), +calculator.numberTwo.join(''));
+      break;
     case '*':
-      return multiply (calculator.numberOne, calculator.numberTwo);
+      calculator.result = multiply (+calculator.numberOne.join(''), +calculator.numberTwo.join(''));
+      break;
     case '/':
-      return divide (calculator.numberOne, calculator.numberTwo);
+      calculator.result = divide (+calculator.numberOne.join(''), +calculator.numberTwo.join(''));
+      break;
   }
+  updateDisplay();
 }
 
 let buttonNumbers = document.querySelectorAll('.button-number');
@@ -67,12 +72,13 @@ function populateOperator(event) {
 };
 
 let buttonOperate = document.querySelector('.button-operate');
+buttonOperate.addEventListener('click', operate)
 
 let calculatorDisplayUpper = document.querySelector('.display-upper');
 
 function updateDisplay () {
   calculatorDisplayUpper.textContent = `${calculator.numberOne.join('')} ${calculator.operator}
-  ${calculator.numberTwo.join('')}`;
+  ${calculator.numberTwo.join('')} = ${calculator.result}`;
 }
 
 
