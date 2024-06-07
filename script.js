@@ -22,7 +22,7 @@ function populateNumbers(event) {
   } else {
     populateNumberTwo(event);
   }
-  updateDisplay();
+  updateDisplay(event);
 }
 
 let buttonOperators = document.querySelectorAll('.button-operator');
@@ -42,13 +42,13 @@ function populateOperator(event) {
   } else {
     calculator.operator = event.target.textContent;
   };
-  updateDisplay();
+  updateDisplay(event);
 };
 
 let buttonOperate = document.querySelector('.button-operate');
 buttonOperate.addEventListener('click', operate)
 
-function operate(){
+function operate(event){
   switch (calculator.operator) {
     case '+':
       calculator.result = add (+calculator.numberOne.join(''), +calculator.numberTwo.join(''));
@@ -63,7 +63,7 @@ function operate(){
       calculator.result = divide (+calculator.numberOne.join(''), +calculator.numberTwo.join(''));
       break;
   }
-  updateDisplay();
+  updateDisplay(event);
 }
 
 function add (a, b) {
@@ -84,18 +84,23 @@ function divide (a, b) {
 
 let calculatorDisplayUpper = document.querySelector('.display-upper');
 
-function updateDisplay () {
-  calculatorDisplayUpper.textContent = `${calculator.numberOne.join('')} ${calculator.operator}
+function updateDisplay (event) {
+  if (event.target.textContent == '='){
+    calculatorDisplayUpper.textContent = `${calculator.numberOne.join('')} ${calculator.operator}
   ${calculator.numberTwo.join('')} = ${calculator.result}`;
-}
+  } else {
+    calculatorDisplayUpper.textContent = `${calculator.numberOne.join('')} ${calculator.operator}
+  ${calculator.numberTwo.join('')}`;
+  };
+};
 
 let buttonClear = document.querySelector('.button-clear');
 buttonClear.addEventListener('click', clearDisplay);
 
-function clearDisplay (){
+function clearDisplay (event){
   calculator.numberOne = [];
   calculator.numberTwo = [];
   calculator.operator = '';
   calculator.result = '';
-  updateDisplay();
+  updateDisplay(event);
 };
