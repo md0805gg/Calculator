@@ -34,6 +34,7 @@ function populateOperator(event) {
   if (calculator.result.toString().split('').length > 0) {
     calculator.numberOne.splice(0, calculator.numberOne.length);
     calculator.numberOne.push(calculator.result);
+    calculator.operator = event.target.textContent;
     calculator.numberTwo.splice(0,calculator.numberTwo.length);
     calculator.result ='';
   }
