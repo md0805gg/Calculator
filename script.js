@@ -93,5 +93,9 @@ let buttonClear = document.querySelector('.button-clear');
 buttonClear.addEventListener('click', clearDisplay);
 
 function clearDisplay (){
-  console.log('test');
+  calculator.numberOne = [];
+  calculator.numberTwo = [];
+  calculator.operator = '';
+  calculator.result = '';
+  updateDisplay();
 };
