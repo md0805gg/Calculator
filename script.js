@@ -29,7 +29,15 @@ let buttonOperators = document.querySelectorAll('.button-operator');
 buttonOperators.forEach((button) => button.addEventListener('click', populateOperator));
 
 function populateOperator(event) {
-  if(calculator.numberOne.length < 1){
+  //if operator is pressed upon finished calculation then populate number one with result, populate operator and 
+  //clear all the other calculator properties
+  if (calculator.result.toString().split('').length > 0) {
+    calculator.numberOne.splice(0, calculator.numberOne.length);
+    calculator.numberOne.push(calculator.result);
+    calculator.numberTwo.splice(0,calculator.numberTwo.length);
+    calculator.result ='';
+  }
+    else if (calculator.numberOne.length < 1){
     return;
   } else {
     calculator.operator = event.target.textContent;
