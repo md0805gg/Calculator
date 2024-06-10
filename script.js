@@ -22,7 +22,7 @@ function populateNumbers(event) {
     clearDisplay(event);
   }
   if (calculator.result.toString().split('').length > 0) {
-    calculator.result = '';
+    clearDisplay(event);
   };
   if (calculator.operator.length < 1) {
     populateNumberOne(event);
@@ -98,6 +98,10 @@ function operate(event){
       calculator.result = multiply (+calculator.numberOne.join(''), +calculator.numberTwo.join(''));
       break;
     case '/':
+      if(calculator.numberTwo.join('') == '0') {
+        calculator.result = 'Divide by 0? At this point, you can only impress me.';
+        break;
+      }
       calculator.result = divide (+calculator.numberOne.join(''), +calculator.numberTwo.join(''));
       break;
   }
