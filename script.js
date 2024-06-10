@@ -59,6 +59,12 @@ let buttonOperate = document.querySelector('.button-operate');
 buttonOperate.addEventListener('click', operate)
 
 function operate(event){
+  //if operate button is pressed with only numberOne and operator provided, then numberTwo receives the
+  //same value as numberOne. Then function continues normally.
+  if (calculator.numberOne.length > 0 && calculator.numberTwo.length < 1 && calculator.operator.length > 0 &&
+    calculator.result.length == 0) {
+    calculator.numberTwo.push(calculator.numberOne); 
+  };
   switch (calculator.operator) {
     case '+':
       calculator.result = add (+calculator.numberOne.join(''), +calculator.numberTwo.join(''));
