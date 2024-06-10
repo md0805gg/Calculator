@@ -78,6 +78,14 @@ function operate(event){
     updateDisplay(event);
     return;
     }
+  //If operate button is pressed with all components provided, it continues the operation as if final reult
+  //was numer one
+  if (calculator.numberOne.length > 0 && calculator.numberTwo.length > 0 && calculator.operator.length > 0 &&
+    calculator.result.toString().split('').length > 0) {
+    calculator.numberOne.splice(0, calculator.numberOne.length);
+    calculator.numberOne.push(calculator.result)
+    calculator.result ='';
+  };
   switch (calculator.operator) {
     case '+':
       calculator.result = add (+calculator.numberOne.join(''), +calculator.numberTwo.join(''));
