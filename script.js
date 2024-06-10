@@ -19,6 +19,10 @@ function populateNumberTwo(event) {
 };
 
 function populateNumbers(event) {
+  if (calculator.numberOne.length > 0 && calculator.numberTwo.length > 0 && calculator.operator.length > 0 &&
+    calculator.result.toString().split('').length > 0) {
+    clearDisplay(event);
+  }
   if (calculator.result.toString().split('').length > 0) {
     calculator.result = '';
   };
