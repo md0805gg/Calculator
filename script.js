@@ -37,8 +37,17 @@ function populateOperator(event) {
     calculator.operator = event.target.textContent;
     calculator.numberTwo.splice(0,calculator.numberTwo.length);
     calculator.result ='';
-  }
-    else if (calculator.numberOne.length < 1){
+  //if operator is pressed wile two numbers and operator are provided, but operate button hasn'b been pushed yet,
+  //it completes the calc and pushes the result to numberOne
+  } else if (calculator.numberOne.length > 0 && calculator.numberTwo.length > 0 && calculator.operator.length > 0 &&
+            calculator.result.length < 1){
+    operate(event);
+    calculator.numberOne.splice(0, calculator.numberOne.length);
+    calculator.numberOne.push(calculator.result);
+    calculator.operator = event.target.textContent;
+    calculator.numberTwo.splice(0,calculator.numberTwo.length);
+    calculator.result ='';
+  } else if (calculator.numberOne.length < 1){
     return;
   } else {
     calculator.operator = event.target.textContent;
