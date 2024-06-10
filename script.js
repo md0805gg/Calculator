@@ -1,5 +1,3 @@
-// 7 + 7 = 14 ; if i press number button, then it clear the result and populaes no2 - wrong
-
 let calculator = {
   numberOne: [],
   numberTwo: [],
