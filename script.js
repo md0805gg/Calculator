@@ -65,6 +65,12 @@ function operate(event){
     calculator.result.length == 0) {
     calculator.numberTwo.push(calculator.numberOne); 
   };
+  if (calculator.numberOne.length > 0 && calculator.numberTwo.length < 1 && calculator.operator.length < 1 &&
+    calculator.result.length == 0) {
+    calculator.result = calculator.numberOne;
+    updateDisplay(event);
+    return;
+    }
   switch (calculator.operator) {
     case '+':
       calculator.result = add (+calculator.numberOne.join(''), +calculator.numberTwo.join(''));
