@@ -1,3 +1,6 @@
+// 7 + 7 = 14 ; if i press number button, then it clear the result and populaes no2 - wrong
+// 7 + 7 = 14; if i press operate button it should do 14 + 7 = 21;
+
 let calculator = {
   numberOne: [],
   numberTwo: [],
@@ -17,6 +20,9 @@ function populateNumberTwo(event) {
 };
 
 function populateNumbers(event) {
+  if (calculator.result.toString().split('').length > 0) {
+    calculator.result = '';
+  };
   if (calculator.operator.length < 1) {
     populateNumberOne(event);
   } else {
