@@ -137,6 +137,10 @@ function divide (a, b) {
 let calculatorDisplayUpper = document.querySelector('.display-upper');
 
 function updateDisplay (event) {
+  if (calculator.result.toString().split('').includes('.')) {
+    console.log(calculator.result);
+    console.log ('result includes dot')
+  };
   if (event.target.textContent == '='){
     calculatorDisplayUpper.textContent = `${calculator.numberOne.join('')} ${calculator.operator}
   ${calculator.numberTwo.join('')} = ${calculator.result}`;
