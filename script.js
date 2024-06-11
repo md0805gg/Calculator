@@ -138,7 +138,11 @@ let calculatorDisplayUpper = document.querySelector('.display-upper');
 
 function updateDisplay (event) {
   if (calculator.result.toString().split('').includes('.')) {
-    console.log(calculator.result);
+    firstIndexAfterDot = calculator.result.toString().split('').indexOf('.') + 1;
+    decimalsAfterDot = calculator.result.toString().split('').slice(firstIndexAfterDot);
+    if(decimalsAfterDot.length > 6) {
+      calculator.result = calculator.result.toFixed(6);
+    }
     console.log ('result includes dot')
   };
   if (event.target.textContent == '='){
