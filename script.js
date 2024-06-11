@@ -143,7 +143,6 @@ function updateDisplay (event) {
     if(decimalsAfterDot.length > 6) {
       calculator.result = calculator.result.toFixed(6);
     }
-    console.log ('result includes dot')
   };
   if (event.target.textContent == '='){
     calculatorDisplayUpper.textContent = `${calculator.numberOne.join('')} ${calculator.operator}
