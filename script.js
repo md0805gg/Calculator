@@ -9,6 +9,7 @@ let buttonNumbers = document.querySelectorAll('.button-number');
 buttonNumbers.forEach((button) => button.addEventListener('click', populateNumbers))
 
 function populateNumberOne(event) {
+  //remove leading 0 from the numberOne
   if (calculator.numberOne.length > 0 && calculator.numberOne[0] == '0'){
     calculator.numberOne.splice(0, calculator.numberOne.length);
     calculator.numberOne.push(event.target.textContent);
@@ -18,6 +19,7 @@ function populateNumberOne(event) {
 };
 
 function populateNumberTwo(event) {
+  //remove leading 0 from the numberTwo
   if (calculator.numberTwo.length > 0 && calculator.numberTwo[0] == '0'){
     calculator.numberTwo.splice(0, calculator.numberTwo.length);
     calculator.numberTwo.push(event.target.textContent);
