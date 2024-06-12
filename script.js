@@ -140,6 +140,7 @@ function divide (a, b) {
 let calculatorDisplayUpper = document.querySelector('.display-upper');
 
 function updateDisplay (event) {
+  //round long decimals to 6 digits
   if (calculator.result.toString().split('').includes('.')) {
     firstIndexAfterDot = calculator.result.toString().split('').indexOf('.') + 1;
     decimalsAfterDot = calculator.result.toString().split('').slice(firstIndexAfterDot);
