@@ -42,6 +42,9 @@ function populateNumbers(event) {
   updateDisplay(event);
 }
 
+let buttonDot = document.querySelector('.button-dot');
+buttonDot.addEventListener('click', populateNumbers);
+
 let buttonOperators = document.querySelectorAll('.button-operator');
 buttonOperators.forEach((button) => button.addEventListener('click', populateOperator));
 
