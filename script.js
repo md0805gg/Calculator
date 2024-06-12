@@ -9,18 +9,28 @@ let buttonNumbers = document.querySelectorAll('.button-number');
 buttonNumbers.forEach((button) => button.addEventListener('click', populateNumbers))
 
 function populateNumberOne(event) {
-  //remove leading 0 from the numberOne
-  if (calculator.numberOne.length > 0 && calculator.numberOne[0] == '0'){
+  //add 0 at the beginning if starting with dot
+  if((calculator.numberOne.length == 0) && (event.target.textContent == '.')) {
+    calculator.numberOne.unshift(0);
+  };
+  //remove leading 0 from the numberOne, exception for dot symbol
+  if (calculator.numberOne.length > 0 && calculator.numberOne[0] == '0' & calculator.numberOne[1] !== '.' &
+     event.target.textContent !== '.'){
     calculator.numberOne.splice(0, calculator.numberOne.length);
     calculator.numberOne.push(event.target.textContent);
   } else {
   calculator.numberOne.push(event.target.textContent);
-  }
+  }; 
 };
 
 function populateNumberTwo(event) {
-  //remove leading 0 from the numberTwo
-  if (calculator.numberTwo.length > 0 && calculator.numberTwo[0] == '0'){
+   //add 0 at the beginning if starting with dot
+   if((calculator.numberTwo.length == 0) && (event.target.textContent == '.')) {
+    calculator.numberTwo.unshift(0);
+  };
+  //remove leading 0 from the numberTwo , exception for dot symbol
+  if (calculator.numberTwo.length > 0 && calculator.numberTwo[0] == '0' & calculator.numberTwo[1] !== '.' &
+    event.target.textContent !== '.'){
     calculator.numberTwo.splice(0, calculator.numberTwo.length);
     calculator.numberTwo.push(event.target.textContent);
   } else {
