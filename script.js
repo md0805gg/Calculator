@@ -163,7 +163,8 @@ function updateDisplay (event) {
   };
   if (event.target.textContent == '='){
     calculatorDisplayUpper.textContent = `${calculator.numberOne.join('')} ${calculator.operator}
-  ${calculator.numberTwo.join('')} = ${calculator.result}`;
+  ${calculator.numberTwo.join('')} =`;
+    calculatorDisplayLower.textContent = `${calculator.result}`;
   } else {
     calculatorDisplayUpper.textContent = `${calculator.numberOne.join('')} ${calculator.operator}
   ${calculator.numberTwo.join('')}`;
