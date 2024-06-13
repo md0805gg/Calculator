@@ -102,7 +102,7 @@ function operate(event){
   //If operate button is pressed with only numberOne provided, value is being populated as final result.
   if (calculator.numberOne.length > 0 && calculator.numberTwo.length < 1 && calculator.operator.length < 1 &&
     calculator.result.length == 0) {
-    calculator.result = calculator.numberOne;
+    calculator.result = calculator.numberOne.join('');
     updateDisplay(event);
     return;
     }
