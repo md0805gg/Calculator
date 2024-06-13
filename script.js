@@ -150,6 +150,7 @@ function divide (a, b) {
 }
 
 let calculatorDisplayUpper = document.querySelector('.display-upper');
+let calculatorDisplayLower = document.querySelector('.display-lower')
 
 function updateDisplay (event) {
   //round long decimals to 6 digits
