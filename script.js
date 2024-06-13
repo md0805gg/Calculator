@@ -1,3 +1,5 @@
+//ERROR 89 -9 = 80, click =, click =, click number eg 69, click =
+
 let calculator = {
   numberOne: [],
   numberTwo: [],
