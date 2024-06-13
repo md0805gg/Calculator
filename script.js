@@ -168,6 +168,7 @@ function updateDisplay (event) {
   } else {
     calculatorDisplayUpper.textContent = `${calculator.numberOne.join('')} ${calculator.operator}
   ${calculator.numberTwo.join('')}`;
+    calculatorDisplayLower.textContent = `${calculator.result}`;
   };
 };
 
