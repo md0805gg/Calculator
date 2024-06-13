@@ -7,3 +7,7 @@
 .display p {
   border: red solid;
 }
+
+.interface {
+  border: green solid;
+}
