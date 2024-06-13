@@ -161,10 +161,29 @@ function updateDisplay (event) {
       calculator.result = calculator.result.toFixed(6);
     }
   };
+  //display on operate click
   if (event.target.textContent == '='){
     calculatorDisplayUpper.textContent = `${calculator.numberOne.join('')} ${calculator.operator}
-  ${calculator.numberTwo.join('')} =`;
+    ${calculator.numberTwo.join('')} =`;
     calculatorDisplayLower.textContent = `${calculator.result}`;
+  //display on number click
+  } else if (event.target.className == 'button-number' || event.target.className == 'button-dot') {
+    if(calculator.operator.length < 1) {
+      calculatorDisplayUpper.textContent = '';
+      calculatorDisplayLower.textContent = `${calculator.numberOne.join('')}`;
+    } else {
+      calculatorDisplayUpper.textContent = `${calculator.numberOne.join('')} ${calculator.operator}`;
+      calculatorDisplayLower.textContent = `${calculator.numberTwo.join('')}`
+    }
+  //display on operator click
+  } else if (event.target.className == 'button-operator') {
+    if (calculator.numberTwo.length < 1) {
+      calculatorDisplayUpper.textContent = `${calculator.numberOne.join('')} ${calculator.operator}`;
+      calculatorDisplayLower.textContent = `${calculator.numberOne.join('')}`
+    } else {
+      calculatorDisplayUpper.textContent = `${calculator.numberOne.join('')} ${calculator.operator}`;
+      calculatorDisplayLower.textContent = `${calculator.numberTwo.join('')}`;
+    }
   } else {
     calculatorDisplayUpper.textContent = `${calculator.numberOne.join('')} ${calculator.operator}
   ${calculator.numberTwo.join('')}`;
