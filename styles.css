@@ -18,6 +18,7 @@ body {
 }
 
 .display {
+  height: 100px;
   border: black solid;
 }
 
