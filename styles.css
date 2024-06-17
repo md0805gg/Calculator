@@ -40,3 +40,9 @@ body {
   height: 500px;
   border: green solid;
 }
+
+.section-upper,
+.section-lower-center,
+.section-lower-side {
+  border: solid pink;
+}
