@@ -36,13 +36,24 @@ body {
 }
 
 .interface {
-  display: block;
+  display: flex;
+  flex-direction: column;
   height: 500px;
   border: green solid;
 }
 
-.section-upper,
-.section-lower-center,
-.section-lower-side {
+.section-upper {
   border: solid pink;
+  flex: 1;
 }
+
+.section-lower {
+  display: flex;
+  border: solid steelblue;
+}
+
+button {
+  height: 50px;
+  width: 33%;
+}
+
