@@ -69,8 +69,12 @@ button {
   background-color: rgb(75, 75, 75);
 }
 
-button:hover{
-background-color: rgb(85, 85, 85);  
+button:hover {
+  background-color: rgb(85, 85, 85);  
+}
+
+button:active { 
+  background-color: rgb(75, 75, 75);
 }
 
 .button-number,
@@ -83,6 +87,11 @@ background-color: rgb(85, 85, 85);
   background-color: rgb(70, 70, 70);
 }
 
+.button-number:active,
+.button-dot:active {
+  background-color: rgb(50, 50, 50);
+}
+
 .button-operate {
   color: rgb(75, 75, 75);
   background-color: lightgray;
@@ -91,5 +100,9 @@ background-color: rgb(85, 85, 85);
 
 .button-operate:hover {
   background-color: rgb(180, 180, 180);
+}
+
+.button-operate:active {
+  background-color: rgb(150, 150, 150);
 }
 
