@@ -16,6 +16,7 @@ body {
   width: 600px;
   border: solid grey;
   background-color: rgb(50, 50, 50);
+  border-radius: 5px;
 }
 
 .display {
@@ -23,6 +24,7 @@ body {
   flex-direction: column;
   justify-content: center;
   height: 150px;
+  border-radius: 5px;
 }
 
 .display p {
