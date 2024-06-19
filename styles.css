@@ -52,7 +52,7 @@ body {
 button {
   height: 1/5;
   width: 25%;
-  border: solid 1px grey;
+  border: solid 1px rgb(50, 50, 50);;
   border-radius: 10px;
 }
 
