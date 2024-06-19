@@ -23,17 +23,25 @@ body {
   flex-direction: column;
   justify-content: center;
   height: 150px;
-  border: black solid;
 }
 
 .display p {
-  border: red solid;
   display: flex;
   flex-direction: column;
   justify-content: end;
   align-items: end;
   padding: 5px 20px;
   height: 40%;
+  color:  white;
+}
+
+.display-upper {
+  font-size: 24px;
+}
+
+.display-lower {
+  font-size: 45px;
+  font-weight: 600;
 }
 
 .interface {
