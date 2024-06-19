@@ -39,7 +39,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  height: 500px;
+  height: 450px;
   border: green solid;
 }
 
@@ -48,13 +48,12 @@ body {
   flex: 1;
 }
 
-.section-lower {
-  display: flex;
-  border: solid steelblue;
-}
-
 button {
   height: 1/5;
   width: 25%;
+}
+
+.button-operate {
+  width: 50%;
 }
 
