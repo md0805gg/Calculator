@@ -15,6 +15,7 @@ body {
 .calculator {
   width: 600px;
   border: solid grey;
+  background-color: rgb(50, 50, 50);
 }
 
 .display {
