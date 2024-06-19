@@ -58,13 +58,23 @@ let buttonConvert = document.querySelector('.button-convert');
 buttonConvert.addEventListener('click', convertNumber);
 
 function convertNumber (event) {
-  if (calculator.operator.length < 1) {
+  //update number one
+  if (calculator.operator.length < 1 && calculator.result.toString().length == 0) {
     if (calculator.numberOne.join('') == 0) {
       return;
     } else if (calculator.numberOne.join('') > 0){
       calculator.numberOne.unshift('-');
     } else {
       calculator.numberOne.splice(0,1);
+    };
+    //update number two
+  } else if (calculator.operator.length >= 1 && calculator.result.toString().length == 0) {
+    if (calculator.numberTwo.join('') == 0) {
+      return;
+    } else if (calculator.numberTwo.join('') > 0){
+      calculator.numberTwo.unshift('-');
+    } else {
+      calculator.numberTwo.splice(0,1);
     };
   }
   updateDisplay(event);
@@ -182,15 +192,19 @@ function updateDisplay (event) {
     calculatorDisplayUpper.textContent = `${calculator.numberOne.join('')} ${calculator.operator}
     ${calculator.numberTwo.join('')} =`;
     calculatorDisplayLower.textContent = `${calculator.result}`;
-  //display on number click
+  //display on number / dot / convert click
   } else if (event.target.className == 'button-number' || event.target.className == 'button-dot' || event.target.className == 'button-convert' ) {
     if(calculator.operator.length < 1) {
       calculatorDisplayUpper.textContent = '';
       calculatorDisplayLower.textContent = `${calculator.numberOne.join('')}`;
     } else {
+      //do not update display if click on convert button on finished calc
+      if (event.target.className == 'button-convert' && calculator.result.toString().length > 0 ){
+        return;
+      } else {
       calculatorDisplayUpper.textContent = `${calculator.numberOne.join('')} ${calculator.operator}`;
       calculatorDisplayLower.textContent = `${calculator.numberTwo.join('')}`
-    }
+    }}
   //display on operator click
   } else if (event.target.className == 'button-operator') {
     if (calculator.numberTwo.length < 1) {
