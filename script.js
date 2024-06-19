@@ -1,3 +1,5 @@
+//ADD CONVERT FOR RESULT AS LAST IF ELSE
+
 let calculator = {
   numberOne: [],
   numberTwo: [],
