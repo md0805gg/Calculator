@@ -60,6 +60,11 @@ button {
 }
 
 .button-operate {
+  color: rgb(75, 75, 75); ;
+  background-color: lightgray;
+}
+
+.button-operate {
   width: 50%;
 }
 
