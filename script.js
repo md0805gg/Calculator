@@ -38,6 +38,9 @@ function populateNumberTwo(event) {
   }
 };
 
+let buttonConvert = document.querySelector('button-convert');
+buttonConvert.addEventListener('click', convertNumber);
+
 function populateNumbers(event) {
   if (calculator.numberOne.length > 0 && calculator.numberTwo.length > 0 && calculator.operator.length > 0 &&
     calculator.result.toString().split('').length > 0) {
