@@ -37,7 +37,8 @@ body {
 
 .interface {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  flex-direction: row;
   height: 500px;
   border: green solid;
 }
@@ -53,7 +54,7 @@ body {
 }
 
 button {
-  height: 50px;
-  width: 33%;
+  height: 1/5;
+  width: 25%;
 }
 
