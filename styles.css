@@ -51,6 +51,8 @@ body {
 button {
   height: 1/5;
   width: 25%;
+  border: solid 1px grey;
+  border-radius: 10px;
 }
 
 .button-operate {
