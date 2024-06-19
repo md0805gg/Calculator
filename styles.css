@@ -41,7 +41,7 @@ body {
   flex-wrap: wrap;
   flex-direction: row;
   height: 450px;
-  border: green solid;
+  margin: 3px;
 }
 
 .section-upper {
@@ -52,8 +52,11 @@ body {
 button {
   height: 1/5;
   width: 25%;
-  border: solid 1px rgb(50, 50, 50);;
+  border: solid 2px rgb(50, 50, 50);;
   border-radius: 10px;
+  font-size: 20px;
+  color: white;
+  background-color: rgb(75, 75, 75);
 }
 
 .button-operate {
