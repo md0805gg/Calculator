@@ -38,9 +38,6 @@ function populateNumberTwo(event) {
   }
 };
 
-let buttonConvert = document.querySelector('button-convert');
-buttonConvert.addEventListener('click', convertNumber);
-
 function populateNumbers(event) {
   if (calculator.numberOne.length > 0 && calculator.numberTwo.length > 0 && calculator.operator.length > 0 &&
     calculator.result.toString().split('').length > 0) {
@@ -53,6 +50,22 @@ function populateNumbers(event) {
     populateNumberOne(event);
   } else {
     populateNumberTwo(event);
+  }
+  updateDisplay(event);
+}
+
+let buttonConvert = document.querySelector('.button-convert');
+buttonConvert.addEventListener('click', convertNumber);
+
+function convertNumber (event) {
+  if (calculator.operator.length < 1) {
+    if (calculator.numberOne.join('') == 0) {
+      return;
+    } else if (calculator.numberOne.join('') > 0){
+      calculator.numberOne.unshift('-');
+    } else {
+      calculator.numberOne.splice(0,1);
+    };
   }
   updateDisplay(event);
 }
@@ -170,7 +183,7 @@ function updateDisplay (event) {
     ${calculator.numberTwo.join('')} =`;
     calculatorDisplayLower.textContent = `${calculator.result}`;
   //display on number click
-  } else if (event.target.className == 'button-number' || event.target.className == 'button-dot') {
+  } else if (event.target.className == 'button-number' || event.target.className == 'button-dot' || event.target.className == 'button-convert' ) {
     if(calculator.operator.length < 1) {
       calculatorDisplayUpper.textContent = '';
       calculatorDisplayLower.textContent = `${calculator.numberOne.join('')}`;
