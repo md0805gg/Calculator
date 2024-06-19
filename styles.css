@@ -106,3 +106,7 @@ button:active {
 .button-operate:active {
   background-color: rgb(150, 150, 150);
 }
+
+.button-backspace {
+  font-size: 36px;
+}
