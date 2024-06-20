@@ -226,7 +226,7 @@ function updateDisplay (event) {
       calculatorDisplayUpper.textContent = '';
       calculatorDisplayLower.textContent = `${calculator.numberOne.join('')}`;
     } else {
-      //do not update display if click on convert button on finished calc
+      //update display if click on convert button on finished calc
       if (event.target.className == 'button-convert' && calculator.result.toString().length > 0 ){
         calculatorDisplayLower.textContent = calculator.result;
       } else {
