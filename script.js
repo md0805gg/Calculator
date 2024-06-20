@@ -113,8 +113,17 @@ function applyBackspace(event) {
       } else {
       calculator.numberTwo.splice(calculator.numberTwo.length -1, 1);
       };
-  
+    //backspace on result
+  } else if (calculator.operator.length >= 1 && calculator.result.toString().length > 0) {
+    if (calculator.result.toString().length == 1) {
+      calculator.result = calculator.result.toString().slice(0, calculator.result.toString().length -1);
+      calculator.result = calculator.result.split('');
+      calculator.result.push(0);
+      calculator.result = calculator.result.join('');
+    } else {
+      calculator.result = calculator.result.toString().slice(0, calculator.result.toString().length -1);
     }
+      }
   updateDisplay(event);
 }
 
@@ -238,7 +247,7 @@ function updateDisplay (event) {
       calculatorDisplayLower.textContent = `${calculator.numberOne.join('')}`;
     } else {
       //update display if click on convert button on finished calc
-      if (event.target.className == 'button-convert' && calculator.result.toString().length > 0 ){
+      if ((event.target.className == 'button-convert' || event.target.className == 'button-backspace') && calculator.result.toString().length > 0 ){
         calculatorDisplayLower.textContent = calculator.result;
       } else {
       calculatorDisplayUpper.textContent = `${calculator.numberOne.join('')} ${calculator.operator}`;
