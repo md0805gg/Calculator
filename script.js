@@ -90,6 +90,11 @@ function convertNumber (event) {
   updateDisplay(event);
 }
 
+let buttonBackspace = document.querySelector('.button-backspace');
+buttonBackspace.add('click', applyBackspace);
+
+
+
 let buttonDot = document.querySelector('.button-dot');
 buttonDot.addEventListener('click', populateNumbers);
 
