@@ -55,11 +55,6 @@ body {
   margin: 3px;
 }
 
-.section-upper {
-  border: solid pink;
-  flex: 1;
-}
-
 button {
   height: 1/5;
   width: 25%;
