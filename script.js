@@ -91,9 +91,21 @@ function convertNumber (event) {
 }
 
 let buttonBackspace = document.querySelector('.button-backspace');
-buttonBackspace.add('click', applyBackspace);
+buttonBackspace.addEventListener('click', applyBackspace);
 
-
+function applyBackspace(event) {
+  //backspace on number one
+  if (calculator.operator.length < 1 && calculator.result.toString().length == 0) {
+    //if removing last digit, then push 0 to the number, instead of leaving an array empty
+    if (calculator.numberOne.length == 1) {
+      calculator.numberOne.splice(calculator.numberOne.length -1, 1);
+      calculator.numberOne.push(0);
+    } else {
+    calculator.numberOne.splice(calculator.numberOne.length -1, 1);
+    };
+  } 
+  updateDisplay(event);
+}
 
 let buttonDot = document.querySelector('.button-dot');
 buttonDot.addEventListener('click', populateNumbers);
@@ -207,8 +219,9 @@ function updateDisplay (event) {
     calculatorDisplayUpper.textContent = `${calculator.numberOne.join('')} ${calculator.operator}
     ${calculator.numberTwo.join('')} =`;
     calculatorDisplayLower.textContent = `${calculator.result}`;
-  //display on number / dot / convert click
-  } else if (event.target.className == 'button-number' || event.target.className == 'button-dot' || event.target.className == 'button-convert' ) {
+  //display on number / dot / convert / backspace click
+  } else if (event.target.className == 'button-number' || event.target.className == 'button-dot' || event.target.className == 'button-convert' || 
+    event.target.className =='button-backspace' ) {
     if(calculator.operator.length < 1) {
       calculatorDisplayUpper.textContent = '';
       calculatorDisplayLower.textContent = `${calculator.numberOne.join('')}`;
