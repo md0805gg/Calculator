@@ -62,7 +62,7 @@ function convertNumber (event) {
   if (calculator.operator.length < 1 && calculator.result.toString().length == 0) {
     if (calculator.numberOne.join('') == 0) {
       return;
-    } else if (calculator.numberOne.join('') > 0){
+    } else if (calculator.numberOne.join('') > 0) { 
       calculator.numberOne.unshift('-');
     } else {
       calculator.numberOne.splice(0,1);
@@ -174,7 +174,7 @@ function operate(event) {
     calculator.result = calculator.numberOne.join('');
     updateDisplay(event);
     return;
-    };
+  };
   //If operate button is pressed with all components provided, it continues the operation as if final reult
   //was numer one
   if (calculator.numberOne.length > 0 && calculator.numberTwo.length > 0 && calculator.operator.length > 0 &&
@@ -240,7 +240,7 @@ function updateDisplay (event) {
   //display on number / dot / convert / backspace click
   } else if (event.target.className == 'button-number' || event.target.className == 'button-dot' || event.target.className == 'button-convert' || 
     event.target.className =='button-backspace' ) {
-    if(calculator.operator.length < 1) {
+    if (calculator.operator.length < 1) {
       calculatorDisplayUpper.textContent = '';
       calculatorDisplayLower.textContent = `${calculator.numberOne.join('')}`;
     } else {
