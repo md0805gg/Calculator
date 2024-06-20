@@ -160,7 +160,7 @@ function operate(event){
       break;
     case '/':
       if(calculator.numberTwo.join('') == '0') {
-        calculator.result = 'Divide by 0? At this point, you can only impress me.';
+        calculator.result = 'Can\'t divide by 0';
         break;
       }
       calculator.result = divide (+calculator.numberOne.join(''), +calculator.numberTwo.join(''));
