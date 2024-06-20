@@ -1,5 +1,3 @@
-//ADD CONVERT FOR RESULT AS LAST IF ELSE
-
 let calculator = {
   numberOne: [],
   numberTwo: [],
@@ -78,7 +76,17 @@ function convertNumber (event) {
     } else {
       calculator.numberTwo.splice(0,1);
     };
-  }
+  } else if (calculator.operator.length >= 1 && calculator.result.toString().length > 0) {
+    if (calculator.result == 0) {
+      return;
+    }
+    else if (calculator.result > 0) {
+      calculator.result = '-' + calculator.result.toString();
+    }
+    else if (calculator.result < 0) {
+      calculator.result = calculator.result.toString().split('').splice(1).join('');
+    }
+  };
   updateDisplay(event);
 }
 
@@ -202,7 +210,7 @@ function updateDisplay (event) {
     } else {
       //do not update display if click on convert button on finished calc
       if (event.target.className == 'button-convert' && calculator.result.toString().length > 0 ){
-        return;
+        calculatorDisplayLower.textContent = calculator.result;
       } else {
       calculatorDisplayUpper.textContent = `${calculator.numberOne.join('')} ${calculator.operator}`;
       calculatorDisplayLower.textContent = `${calculator.numberTwo.join('')}`
