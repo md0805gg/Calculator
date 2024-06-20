@@ -76,6 +76,7 @@ function convertNumber (event) {
     } else {
       calculator.numberTwo.splice(0,1);
     };
+    //update result
   } else if (calculator.operator.length >= 1 && calculator.result.toString().length > 0) {
     if (calculator.result == 0) {
       return;
@@ -103,7 +104,17 @@ function applyBackspace(event) {
     } else {
     calculator.numberOne.splice(calculator.numberOne.length -1, 1);
     };
-  } 
+  //backspace on number two
+  } else if (calculator.operator.length >= 1 && calculator.result.toString().length == 0) {
+      //if removing last digit, then push 0 to the number, instead of leaving an array empty
+      if (calculator.numberTwo.length == 1) {
+        calculator.numberTwo.splice(calculator.numberTwo.length -1, 1);
+        calculator.numberTwo.push(0);
+      } else {
+      calculator.numberTwo.splice(calculator.numberTwo.length -1, 1);
+      };
+  
+    }
   updateDisplay(event);
 }
 
