@@ -271,7 +271,7 @@ function updateDisplay (event) {
 let buttonClear = document.querySelector('.button-clear');
 buttonClear.addEventListener('click', clearDisplay);
 
-function clearDisplay (event){
+function clearDisplay (event) {
   calculator.numberOne = [];
   calculator.numberTwo = [];
   calculator.operator = '';
