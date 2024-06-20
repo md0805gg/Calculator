@@ -6,7 +6,7 @@ let calculator = {
 };
 
 let buttonNumbers = document.querySelectorAll('.button-number');
-buttonNumbers.forEach((button) => button.addEventListener('click', populateNumbers))
+buttonNumbers.forEach((button) => button.addEventListener('click', populateNumbers));
 
 function populateNumberOne(event) {
   //add 0 at the beginning if starting with dot
@@ -15,7 +15,7 @@ function populateNumberOne(event) {
   };
   //remove leading 0 from the numberOne, exception for dot symbol
   if (calculator.numberOne.length > 0 && calculator.numberOne[0] == '0' & calculator.numberOne[1] !== '.' &
-     event.target.textContent !== '.'){
+     event.target.textContent !== '.') {
     calculator.numberOne.splice(0, calculator.numberOne.length);
     calculator.numberOne.push(event.target.textContent);
   } else {
@@ -30,19 +30,19 @@ function populateNumberTwo(event) {
   };
   //remove leading 0 from the numberTwo , exception for dot symbol
   if (calculator.numberTwo.length > 0 && calculator.numberTwo[0] == '0' & calculator.numberTwo[1] !== '.' &
-    event.target.textContent !== '.'){
+    event.target.textContent !== '.') {
     calculator.numberTwo.splice(0, calculator.numberTwo.length);
     calculator.numberTwo.push(event.target.textContent);
   } else {
   calculator.numberTwo.push(event.target.textContent);
-  }
+  };
 };
 
 function populateNumbers(event) {
   if (calculator.numberOne.length > 0 && calculator.numberTwo.length > 0 && calculator.operator.length > 0 &&
     calculator.result.toString().split('').length > 0) {
     clearDisplay(event);
-  }
+  };
   if (calculator.result.toString().split('').length > 0) {
     clearDisplay(event);
   };
@@ -52,7 +52,7 @@ function populateNumbers(event) {
     populateNumberTwo(event);
   }
   updateDisplay(event);
-}
+};
 
 let buttonConvert = document.querySelector('.button-convert');
 buttonConvert.addEventListener('click', convertNumber);
@@ -71,7 +71,7 @@ function convertNumber (event) {
   } else if (calculator.operator.length >= 1 && calculator.result.toString().length == 0) {
     if (calculator.numberTwo.join('') == 0) {
       return;
-    } else if (calculator.numberTwo.join('') > 0){
+    } else if (calculator.numberTwo.join('') > 0) {
       calculator.numberTwo.unshift('-');
     } else {
       calculator.numberTwo.splice(0,1);
@@ -80,16 +80,14 @@ function convertNumber (event) {
   } else if (calculator.operator.length >= 1 && calculator.result.toString().length > 0) {
     if (calculator.result == 0) {
       return;
-    }
-    else if (calculator.result > 0) {
+    } else if (calculator.result > 0) {
       calculator.result = '-' + calculator.result.toString();
-    }
-    else if (calculator.result < 0) {
+    } else if (calculator.result < 0) {
       calculator.result = calculator.result.toString().split('').splice(1).join('');
-    }
+    };
   };
   updateDisplay(event);
-}
+};
 
 let buttonBackspace = document.querySelector('.button-backspace');
 buttonBackspace.addEventListener('click', applyBackspace);
@@ -122,10 +120,10 @@ function applyBackspace(event) {
       calculator.result = calculator.result.join('');
     } else {
       calculator.result = calculator.result.toString().slice(0, calculator.result.toString().length -1);
-    }
-      }
+    };
+  };
   updateDisplay(event);
-}
+};
 
 let buttonDot = document.querySelector('.button-dot');
 buttonDot.addEventListener('click', populateNumbers);
@@ -141,18 +139,18 @@ function populateOperator(event) {
     calculator.numberOne.push(calculator.result);
     calculator.operator = event.target.textContent;
     calculator.numberTwo.splice(0,calculator.numberTwo.length);
-    calculator.result ='';
+    calculator.result = '';
   //if operator is pressed wile two numbers and operator are provided, but operate button hasn'b been pushed yet,
   //it completes the calc and pushes the result to numberOne
   } else if (calculator.numberOne.length > 0 && calculator.numberTwo.length > 0 && calculator.operator.length > 0 &&
-            calculator.result.length < 1){
+            calculator.result.length < 1) {
     operate(event);
     calculator.numberOne.splice(0, calculator.numberOne.length);
     calculator.numberOne.push(calculator.result);
     calculator.operator = event.target.textContent;
     calculator.numberTwo.splice(0,calculator.numberTwo.length);
-    calculator.result ='';
-  } else if (calculator.numberOne.length < 1){
+    calculator.result = '';
+  } else if (calculator.numberOne.length < 1) {
     return;
   } else {
     calculator.operator = event.target.textContent;
@@ -163,7 +161,7 @@ function populateOperator(event) {
 let buttonOperate = document.querySelector('.button-operate');
 buttonOperate.addEventListener('click', operate)
 
-function operate(event){
+function operate(event) {
   //if operate button is pressed with only numberOne and operator provided, then numberTwo receives the
   //same value as numberOne. Then function continues normally.
   if (calculator.numberOne.length > 0 && calculator.numberTwo.length < 1 && calculator.operator.length > 0 &&
@@ -176,14 +174,14 @@ function operate(event){
     calculator.result = calculator.numberOne.join('');
     updateDisplay(event);
     return;
-    }
+    };
   //If operate button is pressed with all components provided, it continues the operation as if final reult
   //was numer one
   if (calculator.numberOne.length > 0 && calculator.numberTwo.length > 0 && calculator.operator.length > 0 &&
     calculator.result.toString().split('').length > 0) {
     calculator.numberOne.splice(0, calculator.numberOne.length);
-    calculator.numberOne.push(calculator.result)
-    calculator.result ='';
+    calculator.numberOne.push(calculator.result);
+    calculator.result = '';
   };
   switch (calculator.operator) {
     case '+':
@@ -202,7 +200,7 @@ function operate(event){
       }
       calculator.result = divide (+calculator.numberOne.join(''), +calculator.numberTwo.join(''));
       break;
-  }
+  };
   updateDisplay(event);
 }
 
@@ -223,19 +221,19 @@ function divide (a, b) {
 }
 
 let calculatorDisplayUpper = document.querySelector('.display-upper');
-let calculatorDisplayLower = document.querySelector('.display-lower')
+let calculatorDisplayLower = document.querySelector('.display-lower');
 
 function updateDisplay (event) {
   //round long decimals to 6 digits
   if (calculator.result.toString().split('').includes('.')) {
     firstIndexAfterDot = calculator.result.toString().split('').indexOf('.') + 1;
     decimalsAfterDot = calculator.result.toString().split('').slice(firstIndexAfterDot);
-    if(decimalsAfterDot.length > 6) {
+    if (decimalsAfterDot.length > 6) {
       calculator.result = calculator.result.toFixed(6);
-    }
+    };
   };
   //display on operate click
-  if (event.target.textContent == '='){
+  if (event.target.textContent == '=') {
     calculatorDisplayUpper.textContent = `${calculator.numberOne.join('')} ${calculator.operator}
     ${calculator.numberTwo.join('')} =`;
     calculatorDisplayLower.textContent = `${calculator.result}`;
@@ -247,17 +245,18 @@ function updateDisplay (event) {
       calculatorDisplayLower.textContent = `${calculator.numberOne.join('')}`;
     } else {
       //update display if click on convert button on finished calc
-      if ((event.target.className == 'button-convert' || event.target.className == 'button-backspace') && calculator.result.toString().length > 0 ){
+      if ((event.target.className == 'button-convert' || event.target.className == 'button-backspace') && calculator.result.toString().length > 0 ) {
         calculatorDisplayLower.textContent = calculator.result;
       } else {
       calculatorDisplayUpper.textContent = `${calculator.numberOne.join('')} ${calculator.operator}`;
-      calculatorDisplayLower.textContent = `${calculator.numberTwo.join('')}`
-    }}
+      calculatorDisplayLower.textContent = `${calculator.numberTwo.join('')}`;
+      };
+    };
   //display on operator click
   } else if (event.target.className == 'button-operator') {
     if (calculator.numberTwo.length < 1) {
       calculatorDisplayUpper.textContent = `${calculator.numberOne.join('')} ${calculator.operator}`;
-      calculatorDisplayLower.textContent = `${calculator.numberOne.join('')}`
+      calculatorDisplayLower.textContent = `${calculator.numberOne.join('')}`;
     } else {
       calculatorDisplayUpper.textContent = `${calculator.numberOne.join('')} ${calculator.operator}`;
       calculatorDisplayLower.textContent = `${calculator.numberTwo.join('')}`;
